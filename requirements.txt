@@ -1,0 +1,142 @@
+
+# I want to build an AI-powered risk management system There are 4 AI agents with crew AI 1) First AI agent will vectorize the static risk (in PDF form) into the chromaDB for a project and score it (1-100) ((if more than 70 -> high, between 40 to 70 -> medium, below 40 -> low). Static risks are: a) Project location: us/uk - low risk, Africa, Middle East -> high, India, asia-medium b) project size : 5-20 -> low risk, 20-50 -> medium, more than 50 high c) technology used: new technology high risk, old technology low risk. d) employee resignation-> high e) key milestone missed f) budget problem
+# 2) Second AI agent basically web scraping the news like the US tariff, currency exchange rate, war in the Middle East, and import ban in China.
+# 3) The third AI agent calculates the risk based on agents one and two from the project details. 4) The fourth AI agent will send the mail to the project manager if the risk is high. Deploy it on streamlit. create separate file for each agent, requirements.txt, use gemini API key and chromaDB,
+# input is like , I will give the project details: project location, project size, technology , budget,
+# output : it will give us the project risk high low or medium, if risk is high than 4th ai agent sent a mail to the project manager.
+# give me file architecture as well
+
+# AI-Powered Risk Management System Architecture
+# I'll design a comprehensive AI-powered risk management system with 4 agents working together via CrewAI. Let me outline the architecture and implementation details.
+
+# System Overview
+# This system will:
+
+# Analyze static project risks from PDFs and score them
+# Monitor dynamic risks from web news
+# Calculate overall project risk scores
+# Automatically notify project managers of high-risk situations
+# File Structure
+# risk_management_system/
+# ├── .env                        # Environment variables for API keys
+# ├── requirements.txt            # Dependencies
+# ├── main.py                     # Application entry point
+# ├── config.py                   # Configuration parameters
+# ├── app.py                      # Streamlit interface
+# ├── agents/
+# │   ├── __init__.py
+# │   ├── static_risk_agent.py    # Agent 1: Static risk analysis
+# │   ├── news_risk_agent.py      # Agent 2: News scraping
+# │   ├── risk_calculator_agent.py # Agent 3: Risk calculation
+# │   └── notification_agent.py   # Agent 4: Email notifications
+# ├── utils/
+# │   ├── __init__.py
+# │   ├── pdf_processor.py        # PDF parsing utilities
+# │   ├── vector_store.py         # ChromaDB interface
+# │   ├── news_scraper.py         # Web scraping utilities
+# │   └── email_sender.py         # Email functionality
+# └── data/
+#     ├── project_data/           # Storage for project PDFs
+#     └── vector_db/              # ChromaDB storage location
+# Implementation
+# Let's create the core files for this system:
+
+
+# requirements.txt
+# Code 
+
+# config.py
+# Code 
+
+# utils/vector_store.py
+# Code 
+
+# utils/pdf_processor.py
+# Code 
+
+# utils/news_scraper.py
+# Code 
+
+# utils/email_sender.py
+# Code 
+
+# agents/static_risk_agent.py
+# Code 
+
+# agents/news_risk_agent.py
+# Code 
+
+# agents/risk_calculator_agent.py
+# Code 
+
+# agents/notification_agent.py
+# Code 
+
+# continue
+
+# Let me continue with the implementation of the remaining files for your AI-powered risk management system:
+
+
+# agents/notification_agent.py (continued)
+# Code 
+
+# main.py
+# Code 
+
+# app.py
+# Code 
+# Now I'll explain how the entire system works together:
+
+# System Overview
+# This AI-powered risk management system uses four specialized AI agents working together via CrewAI to assess project risks:
+
+# Static Risk Agent: Analyzes predefined risk factors like project location, size, technology, and internal issues.
+# News Risk Agent: Scrapes the web for relevant news (tariffs, exchange rates, geopolitical events) that might impact the project.
+# Risk Calculator Agent: Combines static and news risks to calculate an overall risk score.
+# Notification Agent: Automatically sends email alerts to project managers when risk is high.
+# How It Works
+# Project Input: Users enter project details via the Streamlit interface or upload a PDF document with project information.
+# Risk Assessment:
+# Static Risk Agent evaluates predefined risk factors and assigns scores
+# News Risk Agent scrapes relevant news and evaluates its impact
+# Risk Calculator Agent combines these scores with weighted formulas
+# Notification Agent sends alerts for high-risk projects
+# Output: The system produces a comprehensive risk report with:
+# Overall risk score (1-100)
+# Risk level (High, Medium, Low)
+# Detailed breakdown of risk factors
+# AI-generated insights and mitigation recommendations
+# Technical Components
+# CrewAI: Orchestrates the four AI agents working together
+# Gemini API: Powers the AI agents with language understanding
+# ChromaDB: Stores vectorized project documents for semantic search
+# Web Scraping: Monitors news sources for project-relevant risks
+# Streamlit: Provides the user interface
+# Email Notification: Alerts stakeholders of high-risk situations
+# Setup Instructions
+# Create an .env file with the following variables:
+# GEMINI_API_KEY=your_gemini_api_key
+# EMAIL_SENDER=your_email@example.com
+# EMAIL_PASSWORD=your_email_password
+# Install dependencies:
+# bash
+# pip install -r requirements.txt
+# Run the Streamlit app:
+# bash
+# streamlit run app.py
+# This system gives project managers a powerful tool to proactively identify and mitigate risks across their portfolio, combining static project characteristics with dynamic real-world events.
+
+
+
+
+
+streamlit
+crewai
+langchain
+chromadb
+google-generativeai
+python-dotenv
+requests
+beautifulsoup4
+pandas
+pdfplumber
